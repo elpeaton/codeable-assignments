@@ -8,10 +8,21 @@
   </head>
   <body>
     <form>
-      <label for="username">Username</label><br />
-      <input type="text" name="username" id="username" required /><br />
-      <label for="comment">Comment</label><br />
-      <textarea name="comment" id="comment"></textarea><br />
+      <label for="first_name">First Name</label><br />
+      <input type="text" name="first_name" id="first_name" required /><br />
+      <label for="last_name">Last Name</label><br />
+      <input type="text" name="last_name" id="last_name" required /><br />
+      <label for="email">Email</label><br />
+      <input type="email" name="email" id="email" required /><br />
+      <label for="zip_code">Zip code</label><br />
+      <input
+        type="number"
+        name="zip_code"
+        id="zip_code"
+        pattern=".{9,20}"
+        placeholder="123456"
+        required
+      /><br />
       <input type="checkbox" name="makeprivate" value="" />Make my comment
       private<br />
       <input type="submit" name="submit" value="Send" />

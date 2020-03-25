@@ -1,0 +1,42 @@
+table {
+  border-collapse: collapse;
+  font-family: "Overpass", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 32px;
+  color: #000000;
+  vertical-align: middle;
+}
+th {
+  border-bottom: 1px solid #1c1c1c;
+  padding: 24px 15px;
+}
+
+td {
+  border-bottom: 1px solid #bbbbbb;
+  padding: 24px 15px;
+}
+tfoot tr:last-child td {
+  border-bottom: 0;
+}
+
+.company {
+  text-align: left;
+  width: 336px;
+}
+
+.phone {
+  text-align: right;
+  width: 200px;
+}
+
+.budget {
+  text-align: right;
+  width: 200px;
+}
+
+.date {
+  text-align: right;
+  width: 200px;
+}
