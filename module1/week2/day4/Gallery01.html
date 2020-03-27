@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Instagram</title>
+    <style>
+      body {
+        background: #e5e5e5;
+      }
+      .gallery {
+        display: grid;
+        grid-template: 24px 50px 1fr 17px 1fr / 1fr 25px 1fr 25px 1fr;
+      }
+      .logo {
+        grid-area: 1 / 1 / 2 / 6;
+      }
+      .image1 {
+        grid-area: 3/1/4/2;
+      }
+      .image2 {
+        grid-area: 3/3/4/4;
+      }
+      .image3 {
+        grid-area: 3/5/4/6;
+      }
+      .image4 {
+        grid-area: 5/1/6/2;
+      }
+      .image5 {
+        grid-area: 5/3/6/4;
+      }
+      .image6 {
+        grid-area: 5/5/6/6;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="gallery">
+      <img class="logo" src="./images/logoInstagram.png" alt="Instagram" />
+      <img class="image1" src="./images/1.png" alt="image" />
+      <img class="image2" src="./images/2.png" alt="image" />
+      <img class="image3" src="./images/3.png" alt="image" />
+      <img class="image4" src="./images/4.png" alt="image" />
+      <img class="image5" src="./images/5.png" alt="image" />
+      <img class="image6" src="./images/6.png" alt="image" />
+    </section>
+  </body>
+</html>
