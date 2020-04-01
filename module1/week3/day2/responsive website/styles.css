@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  font-family: Overpass;
+  font-style: normal;
+  color: #7a7a7a;
+}
+
+.experience {
+  width: 100%;
+}
+
+.experience-icon {
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  background: #0ad1bd;
+  padding: auto 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feature {
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 768px) {
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 769px) and (max-width: 1439px) {
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 1440px) {
+}
