@@ -1,77 +1,102 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
-#include <math.h>
 
-int count_letters(string txt);
-int count_words(string txt);
-int count_sentences(string txt);
+// Max number of candidates
+#define MAX 9
 
-int main(void)
+// Candidates have name and vote count
+typedef struct
 {
-    string text = get_string("Text: ");
+    string name;
+    int votes;
+} candidate;
 
-    int L = 100 * count_letters(text) / count_words(text);
-    int S = 100 * count_sentences(text) / count_words(text);
+// Array of candidates
+candidate candidates[MAX];
 
-    float index = 0.0588 * (float)L - 0.296 * (float)S - 15.8;
+// Number of candidates
+int candidate_count;
 
-    if (index > 1 && index < 16)
-    {
-        printf("Grade %i\n", (int)round(index));
-    }
-    else if (index >= 16)
-    {
-        printf("Grade 16+\n");
-    }
-    else
-    {
-        printf("Before Grade 1\n");
-    }
-}
+// Function prototypes
+bool vote(string name);
+void print_winner(void);
 
-int count_letters(string txt)
+int main(int argc, string argv[])
 {
-    int letters = 0;
-    int lenght_text = strlen(txt);
-
-    for (int i = 0; i < lenght_text; i++)
+    // Check for invalid usage
+    if (argc < 2)
     {
-        if (isalpha(txt[i]))
+        printf("Usage: plurality [candidate ...]\n");
+        return 1;
+    }
+
+    // Populate array of candidates
+    candidate_count = argc - 1;
+    if (candidate_count > MAX)
+    {
+        printf("Maximum number of candidates is %i\n", MAX);
+        return 2;
+    }
+    for (int i = 0; i < candidate_count; i++)
+    {
+        candidates[i].name = argv[i + 1];
+        candidates[i].votes = 0;
+    }
+
+    int voter_count = get_int("Number of voters: ");
+
+    // Loop over all voters
+    for (int i = 0; i < voter_count; i++)
+    {
+        string name = get_string("Vote: ");
+
+        // Check for invalid vote
+        if (!vote(name))
         {
-            letters++;
+            printf("Invalid vote.\n");
         }
     }
-    return letters;
+
+    // Display winner of election
+    print_winner();
 }
 
-int count_words(string txt)
+// Update vote totals given a new vote
+bool vote(string name)
 {
-    int words = 0;
-    int lenght_text = strlen(txt);
-
-    for (int i = 0; i < lenght_text; i++)
+    // TODO
+    for (int i = 0; i < candidate_count; i++)
     {
-        if (isspace(txt[i]))
+        if (strcmp(candidates[i].name, name) == 0)
         {
-            words++;
+            candidates[i].votes++;
+            return true;
         }
     }
-    return words + 1;
+    return false;
 }
 
-int count_sentences(string txt)
+// Print the winner (or winners) of the election
+void print_winner(void)
 {
-    int sentences = 0;
-    int lenght_text = strlen(txt);
-
-    for (int i = 0; i < lenght_text; i++)
+    // TODO
+    int v = 0;
+    for (int i = 0; i < candidate_count; i++)
     {
-        if ((txt[i]) == '.' || (txt[i]) == '?' || (txt[i]) == '!')
+        if (candidates[i].votes > v)
         {
-            sentences++;
+            v = candidates[i].votes;
         }
     }
-    return sentences;
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[i].votes == v)
+        {
+            printf("%s\n", candidates[i].name);
+        }
+    }
+
+    return;
 }
